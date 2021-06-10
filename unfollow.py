@@ -12,10 +12,6 @@ def unfollow(username):
     followers_username = list(map(fetch_user, followers))
     records_username = list(map(fetch_user, records))
 
-    print(followers_username)
-    print(records_username)
-
-
     for _, user in enumerate(records_username):
         if user not in followers_username:
             log(user)
