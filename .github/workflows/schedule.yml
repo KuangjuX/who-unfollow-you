@@ -32,9 +32,9 @@ jobs:
     
     - name: Run
       run: |
-        git config --local user.email ${{ EMAIL }}
-        git config --local user.name ${{ USERNAME }}
-        python main.py ${{ USERNAME }}
+        git config --local user.email ${{ secrets.EMAIL }}
+        git config --local user.name ${{ secrets.USERNAME }}
+        python main.py ${{ secrets.USERNAME }}
         git add .
         git commit -m "update"
         git push
