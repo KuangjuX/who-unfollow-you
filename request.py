@@ -1,11 +1,9 @@
 import requests
 import sys
-import json
 
-from record import record
-
-def request_api(username: str):
+def request_api(username: str) -> list:
     page = 1
+    followers = []
     while True:
          url = "https://api.github.com/users/"+username+"/followers?page="+str(page)+"&per_page=100"
          req = requests.get(url)
@@ -14,8 +12,10 @@ def request_api(username: str):
             if len(data) == 0:
                 break
             else:
-                record(data)
-                page = page + 1
+                followers += data
+                page += 1
          else:
+            print("URL: " + url)
             print("request status_code:"+str(req.status_code))
             sys.exit(-1)
+    return followers

@@ -1,8 +1,9 @@
-from request import request_api
+import sys
+from unfollow import unfollow
 
 def main():
-    username = 'KuangjuX'
-    request_api(username)
+    username = sys.argv[1]
+    unfollow(username)
 
 if __name__ == '__main__':
     main()
