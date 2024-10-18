@@ -36,5 +36,5 @@ jobs:
         git config --local user.name ${{ secrets.USERNAME }}
         python main.py ${{ secrets.USERNAME }}
         git add .
-        git commit --allow-empty -m "update"
+        git commit -m "update"
         git push
